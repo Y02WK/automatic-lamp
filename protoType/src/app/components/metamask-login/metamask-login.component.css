@@ -1,0 +1,8 @@
+button {
+  margin-top: 6em;
+}
+
+.mat-stroked-button {
+  border-color: #acc8b4;
+  color: #acc8b4;
+}

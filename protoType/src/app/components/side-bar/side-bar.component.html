@@ -1,0 +1,41 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    fixedInViewport="true"
+    [fixedTopGap]="64"
+    #sidenav
+    mode="side"
+    opened
+    cdkDropList
+    (cdkDropListDropped)="drop($event)"
+    class="list"
+  >
+    <mat-card class="button-card"
+      ><button mat-button class="button-styling" (click)="newEntry()">
+        <mat-icon>create</mat-icon>
+      </button></mat-card
+    >
+    <app-card
+      (deleteCard)="delete($event)"
+      (view)="view($event)"
+      *ngFor="let thought of thoughts; let index = index"
+      cdkDrag
+      [index]="index"
+      [thought]="thought"
+    ></app-card>
+  </mat-sidenav>
+  <mat-sidenav-content fixedInViewport="true">
+    <button class="toggle-button" mat-stroked-button (click)="sidenav.toggle()">
+      Toggle sidebar
+      <mat-icon *ngIf="sidenav.opened">toggle_on</mat-icon>
+      <mat-icon *ngIf="!sidenav.opened">toggle_off</mat-icon>
+    </button>
+    <mat-tab-group #tabGroup>
+      <mat-tab label="VIEW">
+        <app-card-display [thought]="currentViewThought"></app-card-display>
+      </mat-tab>
+      <mat-tab label="WRITE">
+        <app-input (updateArray)="updateArray($event)"></app-input>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-sidenav-content>
+</mat-sidenav-container>

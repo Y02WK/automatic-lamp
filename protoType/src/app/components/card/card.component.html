@@ -1,0 +1,10 @@
+<mat-card class="item" *ngIf="thought" (click)="view.emit(thought)">
+  <span>Time left: </span>
+  <cd-timer
+    [startTime]="diffTime"
+    [countdown]="true"
+    format="hms"
+    (onComplete)="deleteEvent()"
+  ></cd-timer>
+  <div class="content">{{ thought.msg.substring(0, 52) }}</div>
+</mat-card>

@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  min-height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  /* background-color: #272727;
+  font-color: #acc8b4; */
+  background-color: #fafafa;
+}
+body {
+  margin: 0;
+  /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+  font-family: "Hubballi", cursive;
+}

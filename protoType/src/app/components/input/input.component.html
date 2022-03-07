@@ -1,0 +1,44 @@
+<div class="form-container">
+  <form [formGroup]="form" #formDirective="ngForm">
+    <mat-form-field class="full-width">
+      <textarea
+        style="resize: none"
+        row="3"
+        matInput
+        autofocus
+        formControlName="input"
+        id="input"
+        appMaxLength="140"
+        #input
+      ></textarea>
+      <small
+        class="form-text text-muted"
+        [class.red]="input.value.length >= maxInputCharCount"
+        ><code>{{ input.value.length }}</code> /
+        <code>{{ maxInputCharCount }}</code> characters</small
+      >
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <button
+        mat-button
+        (click)="resetInput()"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+      >
+        <mat-icon>restart_alt</mat-icon>
+        <p>Reset</p>
+      </button>
+      <button
+        matSuffix
+        mat-button
+        fxLayout="row"
+        (click)="sendInput()"
+        fxLayoutAlign="center center"
+        [disabled]="!form.valid"
+      >
+        <mat-icon>send</mat-icon>
+        <p>Write</p>
+      </button>
+    </div>
+  </form>
+</div>

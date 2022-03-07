@@ -1,0 +1,13 @@
+mat-card {
+  border: 0.3px solid;
+  border-color: white;
+  /* background-color: #272727;
+  color: #acc8b4; */
+  max-width: 338px;
+  max-height: 40px;
+  text-overflow: hidden;
+}
+
+.content {
+  text-overflow: hidden;
+}
